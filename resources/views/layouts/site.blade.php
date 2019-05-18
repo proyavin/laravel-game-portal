@@ -21,6 +21,11 @@
 </head>
 <body>
     <div id="app">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <nav class="navbar navbar-dark bg-primary navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
