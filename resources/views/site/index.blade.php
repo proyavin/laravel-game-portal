@@ -2,22 +2,15 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    Главная страница
-                </div>
-            </div>
-        </div>
+    <div class="row">
+        @component('components.game.card')
+            @slot('title')
+                Заголовок1
+            @endslot
+            @slot('desc')
+                Описание1
+            @endslot
+        @endcomponent
     </div>
 </div>
 @endsection

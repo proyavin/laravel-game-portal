@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', 'site\PagesController@getIndexPage')->name('indexPage');
+Route::get('/', 'site\PagesController@getIndexPage')->name('page.index');
+
+Route::group(['prefix' => 'game'], function() {
+   Route::post('/new', 'GameController@create')->name('game.create');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
+    Route::get('/', 'admin\PagesController@getDashboardPage')->name('admin.page.dashboard');
+});
 
 Auth::routes();

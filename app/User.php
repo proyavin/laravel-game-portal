@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function isAdmin() {
+        return ($this->role->name == 'admin') ? true : false;
+    }
+
+    public function isModerator() {
+        return ($this->role->name == 'moderator') ? true : false;
+    }
+
+    public function isAdminOrModerator() {
+        return $this->isAdmin() || $this->isModerator();
+    }
 }
