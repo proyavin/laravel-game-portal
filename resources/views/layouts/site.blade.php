@@ -21,9 +21,9 @@
 </head>
 <body>
     <div id="app">
-        @if (session('status'))
+        @if (session('message'))
             <div class="alert alert-success" role="alert">
-                {{ session('status') }}
+                {{ session('message') }}
             </div>
         @endif
         <nav class="navbar navbar-dark bg-primary navbar-expand-md">

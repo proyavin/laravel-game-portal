@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'admin\PagesController@getDashboardPage')->name('admin.page.dashboard');
     Route::get('/games', 'admin\GameController@index')->name('admin.page.games');
     Route::get('/games/new', 'admin\GameController@create')->name('admin.page.games.create');
+    Route::post('/games/new', 'GameController@store')->name('admin.page.games.save');
 });
 
 Auth::routes();

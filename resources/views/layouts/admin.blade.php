@@ -27,11 +27,6 @@
 </head>
 <body>
 <div id="app">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('admin.page.dashboard') }}">
@@ -93,9 +88,9 @@
         </nav>
     </div>
 
-    @if (session('status'))
+    @if (session('message'))
         <div class="alert alert-success" role="alert">
-            {{ session('status') }}
+            {{ session('message') }}
         </div>
     @endif
 

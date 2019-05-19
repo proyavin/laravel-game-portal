@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\GameRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,9 +13,12 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GameRepository $games)
     {
-        return view('admin.games.index');
+
+        $games = $games->getAllWithPaginator(25);
+
+        return view('admin.games.index', ['games' => $games]);
     }
 
     /**

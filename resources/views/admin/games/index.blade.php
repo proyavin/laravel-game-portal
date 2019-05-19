@@ -21,17 +21,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>GTA V</td>
-                                <td><a href="#">@4oremty</a></td>
-                                <td>time</td>
-                                <td>time</td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-primary btn-sm"><i class="fas fa-wrench"></i></button>
-                                    <button type="button" class="btn btn-outline-success btn-sm"><i class="fas fa-eye"></i></button>
-                                </td>
-                            </tr>
+                            @foreach($games as $game)
+                                <tr>
+                                    <th scope="row">{{ $game->id }}</th>
+                                    <td>{{ $game->name }}</td>
+                                    <td><a href="#">{{ $game->publisher->name }}</a></td>
+                                    <td>{{ $game->created_at }}</td>
+                                    <td>{{ $game->updated_at }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="fas fa-wrench"></i></button>
+                                        <button type="button" class="btn btn-outline-success btn-sm"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
