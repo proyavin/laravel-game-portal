@@ -13,6 +13,8 @@
 
 Route::get('/', 'site\PagesController@getIndexPage')->name('page.index');
 
+Route::get('/user/{id}', 'auth\ProfileController@getProfilePage')->name('user.profile');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'admin\PagesController@getDashboardPage')->name('admin.page.dashboard');
     Route::get('/games', 'admin\GameController@index')->name('admin.page.games');

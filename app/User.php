@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'last_seen'
     ];
 
     /**
@@ -51,5 +52,16 @@ class User extends Authenticatable
 
     public function isAdminOrModerator() {
         return $this->isAdmin() || $this->isModerator();
+    }
+
+    public function getOnlineStatus() {
+
+        $minutes = Carbon::parse($this->last_seen)->diffInMinutes(Carbon::now());
+
+        if($minutes < 5) {
+            return 'Онлайн';
+        }else {
+            return 'Был(а) в сети '.$minutes.' минут назад';
+        }
     }
 }
