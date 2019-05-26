@@ -11,7 +11,11 @@
                         <div class="jumbotron">
                             <h1 class="display-4">{{ $user->name }}</h1>
                             <hr class="my-4">
-                            <p>{{ $user->getOnlineStatus() }}</p>
+                            <p>{{ $user->role->name }} | {{ $user->getOnlineStatus() }}</p>
+                            <hr>
+
+                              {{ $achivs }}
+
                         </div>
                     </div>
                 </div>

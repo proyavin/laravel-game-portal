@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Game;
+use App\Observers\GameObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -18,6 +20,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\GameCreated' => [
+            'App\Listeners\GameCreatedDD',
+            'App\Listeners\GameCreatedAA',
+        ]
     ];
 
     /**
@@ -29,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        Game::observe(new GameObserver);
+
     }
 }

@@ -6,10 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Gstt\Achievements\Achiever;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Achiever;
 
     /**
      * The attributes that are mass assignable.

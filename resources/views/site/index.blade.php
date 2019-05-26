@@ -10,6 +10,9 @@
             @slot('desc')
                 Описание1
             @endslot
+                @slot('user_id')
+                    1
+                @endslot
         @endcomponent
     </div>
 </div>

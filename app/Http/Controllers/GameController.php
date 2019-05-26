@@ -6,6 +6,7 @@ use App\Http\Requests\GameRequest;
 use Illuminate\Http\Request;
 use App\Game;
 use Illuminate\Support\Facades\Session;
+use Achiv;
 
 class GameController extends Controller
 {

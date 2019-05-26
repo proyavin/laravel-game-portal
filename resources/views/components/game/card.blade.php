@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5 class="card-title"><a href="#">{{ $title }}</a></h5>
             <p class="card-text">{{ $desc }}</p>
-            <p class="card-text"><small class="text-muted">Автор: <a href="#">4oremty</a> | Жанр: <a href="#">Песочница</a></small></p>
+            <p class="card-text"><small class="text-muted">Автор: <a href="{{ route('user.profile', $user_id) }}">4oremty</a> | Жанр: <a href="#">Песочница</a></small></p>
         </div>
     </div>
 </div>

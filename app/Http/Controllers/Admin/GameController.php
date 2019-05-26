@@ -16,7 +16,7 @@ class GameController extends Controller
     public function index(GameRepository $games)
     {
 
-        $games = $games->getAllWithPaginator(25);
+        $games = $games->getAllWithPaginator(15);
 
         return view('admin.games.index', ['games' => $games]);
     }

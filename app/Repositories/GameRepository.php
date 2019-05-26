@@ -15,6 +15,7 @@ class GameRepository extends Repository {
         return $this->startCond()
             ->select(['id', 'name', 'description', 'publisher_id', 'poster', 'year', 'created_at', 'updated_at'])
             ->orderBy('id')
+            ->with('publisher')
             ->paginate($count);
     }
 
