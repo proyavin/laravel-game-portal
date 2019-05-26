@@ -180,7 +180,6 @@ return [
         /*
          * Custom Service Providers...
          * */
-        App\Providers\AchivsServiceProvider::class,
     ],
 
     /*
@@ -231,7 +230,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Achiv' => App\Facades\Achiv::class,
     ],
 
 ];
